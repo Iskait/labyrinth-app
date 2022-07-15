@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/labyrinth-app/static/css/main.3fb4dec8.css",
-    "main.js": "/labyrinth-app/static/js/main.fb13cb84.js",
+    "main.css": "/labyrinth-app/static/css/main.f1c0bfb2.css",
+    "main.js": "/labyrinth-app/static/js/main.3db1f875.js",
     "static/media/10-polygon-white-part-4-_-textures-on-creative-market-art-ppt.jpeg": "/labyrinth-app/static/media/10-polygon-white-part-4-_-textures-on-creative-market-art-ppt.a668a4629db022b7f81e.jpeg",
     "static/media/thumb-down.svg": "/labyrinth-app/static/media/thumb-down.017219c7f7969ea93b14939cb47bef4f.svg",
     "static/media/thumb-up.svg": "/labyrinth-app/static/media/thumb-up.fd47d21921708ccb6ab9f72f6a194f2e.svg",
@@ -10,11 +10,11 @@
     "static/media/arrowup.svg": "/labyrinth-app/static/media/arrowup.367d2c4973a47b0e0ce8947da54422ca.svg",
     "static/media/arrowright.svg": "/labyrinth-app/static/media/arrowright.377a106da674e91416bae8c48782bf17.svg",
     "static/media/arrowleft.svg": "/labyrinth-app/static/media/arrowleft.d468277f42a64d2a8c81204d234de195.svg",
-    "main.3fb4dec8.css.map": "/labyrinth-app/static/css/main.3fb4dec8.css.map",
-    "main.fb13cb84.js.map": "/labyrinth-app/static/js/main.fb13cb84.js.map"
+    "main.f1c0bfb2.css.map": "/labyrinth-app/static/css/main.f1c0bfb2.css.map",
+    "main.3db1f875.js.map": "/labyrinth-app/static/js/main.3db1f875.js.map"
   },
   "entrypoints": [
-    "static/css/main.3fb4dec8.css",
-    "static/js/main.fb13cb84.js"
+    "static/css/main.f1c0bfb2.css",
+    "static/js/main.3db1f875.js"
   ]
 }
