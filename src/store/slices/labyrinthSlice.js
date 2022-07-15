@@ -26,24 +26,31 @@ const labyrinthSlice = createSlice({
         randomCell.picked = true;
       },
       switchCells: (state) => {
-        state.field[state.coordinate[0]][state.coordinate[1]].picked = false
-        state.coordinate.forEach((v,i) => i === 0 ? 
-        (!v ? state.arrows.splice(state.arrows.findIndex(x=>x==='up'), 1) :
-         v === state.field.length-1 ? state.arrows.splice(state.arrows.findIndex(x=>x==='down'), 1) : v) :
-        (!v ? state.arrows.splice(state.arrows.findIndex(x=>x==='left'), 1) : 
-        v === state.field.length-1 ? state.arrows.splice(state.arrows.findIndex(x=>x==='right'), 1) : v))
+        state.field.forEach((cells=>cells.forEach(cell => cell.picked = false)))
+        state.coordinate.forEach((v,i) => !i ? 
+        (!v ? state.arrows.splice(state.arrows.indexOf('up'), 1) :
+         v === state.field.length-1 ? state.arrows.splice(state.arrows.indexOf('down'), 1) : v) :
+        (!v ? state.arrows.splice(state.arrows.indexOf('left'), 1) : 
+        v === state.field.length-1 ? state.arrows.splice(state.arrows.indexOf('right'), 1) : v))
         // Удаялем из массива ненужные стрелки если мы не можем двигаться в какую то из сторон.
         state.arrow = state.arrows[~~(Math.random()*state.arrows.length)];
-        state.arrow === 'up' ? state.coordinate[0]-=1 : state.arrow === 'down' ? state.coordinate[0]+=1 :
-        state.arrow === 'left' ? state.coordinate[1]-=1 : state.coordinate[1]+=1;
+        // Выбираем случайную стрелку.
+        state.arrow === 'up' ? state.coordinate[0]-=1 : 
+        state.arrow === 'down' ? state.coordinate[0]+=1 :
+        state.arrow === 'left' ? state.coordinate[1]-=1 : 
+        state.coordinate[1]+=1;
+
         // Исходя из полученной случайно стрелки меняем координаты.
         state.arrows = ['up', 'left', 'down', 'right'];
-        // Возвращаем массив со стрелками в исходное положение, так как до этого могли быть удалены элементы массива
-        state.field[state.coordinate[0]][state.coordinate[1]].picked = true
+        // Возвращаем массив со стрелками в исходное положение, так как до этого могли быть удалены элементы массива.
+        state.field[state.coordinate[0]][state.coordinate[1]].picked = true;
         state.path.push(state.arrow);
       },
       restartGame: (state) => {
-        state.field.forEach(cells => cells.forEach(cell => (cell.picked = false, cell.start = false)));
+        state.field.forEach(cells => cells.forEach(cell => {
+          cell.picked = false; 
+          cell.start = false
+        }));
         state.path = [];
       }
     }
