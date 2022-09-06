@@ -7,7 +7,7 @@ import thumbDown from "../assets/thumb-down.svg";
 
 function Cell({ picked, start }) {
   const { path } = useSelector((state) => state.labyrinth);
-  const { isRight, showAnswer } = useSelector((state) => state.answer);
+  const { isRight, showAnswer } = useSelector(state=>state.answer);
   const dispatch = useDispatch();
   const [thumbVisible, setThumbVisible] = useState(false);
   const handleGuess = () => {
@@ -23,20 +23,15 @@ function Cell({ picked, start }) {
     }, 2000);
   };
   return (
-    <div
-      className="bg-sky-400 h-20 w-20 rounded-lg flex items-center justify-center relative"
-      onClick={handleGuess}
-    >
-      {start && <p className="text-sm">START</p>}
+    <div className="cell" onClick={handleGuess}>
+      {start && <p className="cell__start">START</p>}
       {showAnswer && !isRight && picked && (
-        <span className="absolute text-color text-5xl font-extrabold top-6">
-          *
-        </span>
+        <span className="cell__answer">*</span>
       )}
       {thumbVisible && (
         <img
           src={picked ? thumbUp : thumbDown}
-          className="w-5 h-5"
+          style={{ width: "20px", height: "20px" }}
           alt="thumb-up"
         />
       )}

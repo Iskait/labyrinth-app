@@ -25,20 +25,26 @@ function Labyrinth() {
     };
   }, [coordinate, path, dispatch]);
   return (
-    <div className="flex flex-col items-center gap-y-6 py-10">
-      <h1 className="font-bold text-2xl">Labyrinth game</h1>
-      <p
-        className={`font-semibold 
-        ${path.length === 10 ? "visible" : "invisible"}`}
-      >
-        Try to guess.
-      </p>
-      <div className={`grid grid-cols-${field.length} gap-3`}>
-        {field.map((cell) =>
-          cell.map((x) => (
-            <Cell key={x.cellNo} picked={x.picked} start={x.start} />
-          ))
-        )}
+    <div className="labyrinth">
+      <div className="labyrinth__container _container">
+        <h1 className="labyrinth__title">Labyrinth game</h1>
+        <p
+          className="labyrinth__text"
+          style={{ visibility: path.length === 10 ? "visible" : "hidden" }}
+        >
+          Try to guess.
+        </p>
+        <div className="labyrinth__block">
+          {field.map((cell) =>
+            cell.map((x) => (
+              <Cell
+                key={x.cellNo}
+                picked={x.picked}
+                start={x.start}
+              />
+            ))
+          )}
+        </div>
       </div>
     </div>
   );
